@@ -263,7 +263,18 @@ function ProductList({ onHomeClick }) {
           [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
       };
-      
+
+    const calculateTotalAmount = () => {
+    let total = 0;
+    cart.forEach((item) => {
+        const costItem = parseFloat(item.cost.substring(1));
+        total += costItem * item.quantity;
+    });
+    return total
+ 
+  };
+  
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
